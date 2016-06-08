@@ -105,6 +105,7 @@ function intialLoad() {
       intervalCurrentPosition = setInterval(
         function() {
           navigator.geolocation.getCurrentPosition(geolocationWatchSuccess, geolocationWatchError, {timeout: 4000, enableHighAccuracy: true});
+          recalc_clicked_old();
         }, 
         locationRefreshInterval);
     });
@@ -329,7 +330,7 @@ function dummyCheck() {
   last10Geo.lat = x;
   last10Geo.lng = y;
   initGeoLocationQueues(Geo.lat, Geo.lng);
-  geolocationWatchSuccess_helper(x, y);
+  geolocationWatchSuccess_helper(x, y); 
 }
 
 function distEuclidean(lat1, long1, lat2, long2) {
